@@ -35,6 +35,9 @@ right:0;
    width:100%;
 }
 
+.link { color: #FFFFFF; }
+.link:hover { color: #ff0000; }
+
 .mypanel {
 width:25%;
 position:absolute;
