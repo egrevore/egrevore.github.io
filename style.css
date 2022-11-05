@@ -3,6 +3,12 @@
 	padding:0;	
 	}
 
+a {
+    color: #ffffff;
+    font-family: helvetica;
+    text-decoration: none;
+}
+
 body {
     background: #000000;
     color: #ffffff;
@@ -34,9 +40,6 @@ right:0;
    height:30px;
    width:100%;
 }
-
-.link { color: #FFFFFF; }
-.link:hover { color: #ff0000; }
 
 .mypanel {
 width:25%;
