@@ -5,8 +5,12 @@
 
 a {
     color: #ffffff;
-    font-family: helvetica;
-    text-decoration: none;
+    text-decoration: underline;
+}
+
+a:hover {
+  color: #0000ff;
+  text-decoration: none;
 }
 
 body {
