@@ -1,3 +1,8 @@
+* {
+	margin:0;
+	padding:0;	
+	}
+
 a {
     color: #ffffff;
     text-decoration: underline;
@@ -38,12 +43,6 @@ img {
    bottom:30px;
    height:30px;
    width:100%;
-}
-
-.padding
-{
-height:300px;
-padding: 50px 50px 50px 50px;
 }
 
 .mypanel {
