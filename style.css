@@ -19,7 +19,7 @@ body {
     text-align: center;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 8%;
 }
 
 img {
@@ -37,16 +37,8 @@ img {
     right:0;
     }
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:30px;
-   height:30px;
-   width:100%;
-}
-
 .mypanel {
-    width:25%;
+    width:10%;
     height: 99%;
     position:absolute;
     top:1%;
