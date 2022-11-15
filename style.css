@@ -39,7 +39,7 @@ img {
 
 .mypanel {
     width:10%;
-    height: 101%;
-    position:absolute;
+    height: 98%;
+    position:fixed;
     top:1%;
     }
