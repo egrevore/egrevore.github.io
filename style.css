@@ -14,8 +14,9 @@ a:hover {
 }
 
 body {
+    position: relative;
     background: #000000;
-    color: #ffffff;
+    color: #FFFFFF;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -26,20 +27,34 @@ img {
     padding: 0;
     margin: 0;
     max-height: 100%;
-    max-width: 50%;
+    max-width: 100%;
 }
 
 #panel-left {
     left:0;
+    float: left;
     }
     
 #panel-right {
     right:0;
+    float: right;
     }
 
 .mypanel {
-    width:8%;
+    position:absolute;
+    width: 8%;
     height: 98%;
-    position:fixed;
     top:1%;
+    display: flex;
+    justify-content: center;
     }
+    
+figure {
+  display: inline-block;
+  height: 300px;
+  text-align: center;
+  line-height: 5px;
+  text-indent: 0;
+  margin: 5px 0;
+  padding: 0;
+}
