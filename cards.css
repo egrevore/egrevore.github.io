@@ -4,7 +4,7 @@
 	}
 
 a {
-    color: #000000;
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -14,31 +14,52 @@ a:hover {
 }
 
 body {
-    background: #81c3f3;
+    background: #000000;
     color: #000000;
     text-align: center;
     height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 0%;
+}
+
+p {
+  display: block;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 img {
     padding: 0;
     margin: 0;
     max-height: 100%;
-    max-width: 50%;
+    max-width: 100%;
 }
 
-#footer {
-   position:fixed;
-   left:0px;
-   bottom:30px;
-   height:30px;
-   width:100%;
-}
+#panel-left {
+    left:0;
+    }
+    
+#panel-right {
+    right:0;
+    }
+    
 
-.padding
-{
-height:300px;
-padding: 50px 50px 50px 50px;
+.mypanel {
+    position:absolute;
+    width: 8%;
+    height: 98%;
+    top:1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+figure {
+  display: inline-block;
+  height: 300px;
+  text-align: center;
+  line-height: 5px;
+  text-indent: 0;
+  margin: 5px 0;
+  padding: 0;
 }
