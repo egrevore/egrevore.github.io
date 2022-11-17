@@ -31,18 +31,18 @@ img {
 }
 
 #panel-left {
-    left:46%;
+    left:0;
     float: left;
     }
     
 #panel-right {
-    right:46%;
+    right:0;
     float: right;
     }
 
 .mypanel {
     position:fixed;
-    width: 100%;
+    width: 8%;
     height: 98vh;
     top:1vh;
     display: flex;
