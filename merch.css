@@ -35,6 +35,12 @@ img {
     max-width: 50%;
 }
 
+#back{ 
+	position:absolute; 
+	top:10px; 
+	left:-90px; 
+} 
+
 #footer {
    position:fixed;
    left:0px;
