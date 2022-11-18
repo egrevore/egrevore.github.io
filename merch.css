@@ -8,6 +8,12 @@ a {
     text-decoration: underline;
 }
 
+p {
+    display: block;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
 a:hover {
   color: #0000ff;
   text-decoration: none;
