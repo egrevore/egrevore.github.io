@@ -9,7 +9,6 @@ body {
     background-color: #fff2ea; /* Warm cream background */
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
-    min-height: 100vh;
     min-height: 100dvh; /* Use dynamic viewport height for mobile */
     display: flex;
     flex-direction: column;
