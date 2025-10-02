@@ -1,57 +1,141 @@
 <!DOCTYPE html>
-<html>
-  <head>
-     
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>EGREVORE</title>
-    <style>
-      .glow {
-      color: #FF0000;
-      text-shadow: 0 0 5px #FF0000;
-      }
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 200px;
-}
+    <meta name="description" content="Effay Adoptable Tulpas on Ethereum">
+    <meta name="keywords" content="Fashion, NFT, Girls">
+    <meta name="author" content="Egrevore">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMING SOON</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="carousel.js" defer></script>
+</head>
+<body>
+    <div id="swipe-indicator" style="display:none; width:100%; text-align:center; padding:12px 0; background:transparent; position:fixed; top:0; left:0; z-index:1000;">
+        <img src="assets/swipe.png" alt="Swipe" style="height:3vh; width:auto;">
+    </div>
+        <div class="character-slider">
+            <div class="character-section">
+                <div class="character">
+                    <img src="assets/one.png" alt="Character 1" class="character-image">
+                </div>
+                <div class="action-button">
+                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/join.png" alt="Join Whitelist" class="action-image coming-soon"></a> <!-- delete coming-soon -->
+                </div>
+            </div>
+            <div class="character-section" style="display:none;">
+                <div class="character">
+                    <img src="assets/two.png" alt="Character 2" class="character-image">
+                </div>
+                <div class="action-button">
+                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/mint.png" alt="Mint Egregirl" class="action-image coming-soon"></a> <!-- delete coming-soon -->
+                </div>
+            </div>
+            <div class="character-section" style="display:none;">
+                <div class="character">
+                    <img src="assets/three.png" alt="Character 3" class="character-image">
+                </div>
+                <div class="action-button">
+                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/play.png" alt="Play Dress-up Game" class="action-image coming-soon"></a> <!-- delete coming-soon -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-.cards {
-  position: relative;
-  display: inline-block;
-  float: left;
-  padding: 15px;
-}
-    </style>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-  </head>
-  
-  <body style="background-image: url(assets/stars.gif)">
-    <div id="panel-left" class="mypanel"><img src="assets/side.png" class="center"></div>
-    <div id="panel-right" class="mypanel"><img src="assets/side.png" class="center"></div>
-    
-    <h1>Welcome to Egrevore!</h1>
-    <h2>搾取工場</h2>
-    <br>
-    
-    <img src="assets/logo.png" width="500">
+    <!-- Social Media Icons -->
+    <div class="social-media">
+        <a href="https://discord.gg/VBxSZBtP46" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <img src="assets/discord.png" alt="Discord">
+        </a>
+        <a href="https://x.com/egrevore" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <img src="assets/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://www.instagram.com/egregirl/" class="social-icon" target="_blank" rel="noopener noreferrer">
+            <img src="assets/instagram.png" alt="Instagram">
+        </a>
+    </div>
 
-    <div class="glow"><p><i>COMING SOON</i></p></div>
-    <br>
-    <p>
-      <a href="https://twitter.com/egrevore">TWITTER</a><span>&nbsp;♱</span>
-      <a href="https://www.instagram.com/egregirl/">INSTAGRAM</a>
-    </p>
-    <br>
-    <p>(▽•̀(oo)•́ ▽)</p>
-    <br>
-    <p><script type="text/javascript" src="//counter.websiteout.net/js/6/7/0/1"></script></p>
-  </body>
-  
+    <script>
+    // Mobile slider logic with swipe support
+    function updateSliderDisplay() {
+        const sections = document.querySelectorAll('.character-slider .character-section');
+        // Check if all sections fit in the slider viewport
+        const slider = document.querySelector('.character-slider');
+        let totalWidth = 0;
+        sections.forEach(sec => {
+            totalWidth += sec.offsetWidth;
+        });
+        const fitsInViewport = totalWidth <= slider.offsetWidth;
+        const isMobile = window.innerWidth <= 600 || !fitsInViewport;
+        const mobileArrowLeft = document.getElementById('mobile-arrow-left');
+        const mobileArrowRight = document.getElementById('mobile-arrow-right');
+        if (mobileArrowLeft && mobileArrowRight) {
+            if (isMobile) {
+                mobileArrowLeft.style.display = 'block';
+                mobileArrowRight.style.display = 'block';
+            } else {
+                mobileArrowLeft.style.display = 'none';
+                mobileArrowRight.style.display = 'none';
+            }
+        }
+        if (isMobile) {
+            let current = window.sliderIndex || 0;
+            sections.forEach((sec, i) => {
+                sec.style.display = (i === current) ? 'flex' : 'none';
+            });
+        } else {
+            sections.forEach(sec => { sec.style.display = 'flex'; });
+        }
+    }
+    window.sliderIndex = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+        updateSliderDisplay();
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const slider = document.querySelector('.character-slider');
+        const mobileArrowLeft = document.getElementById('mobile-arrow-left');
+        const mobileArrowRight = document.getElementById('mobile-arrow-right');
+        slider.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        slider.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+        function handleGesture() {
+            const sections = document.querySelectorAll('.character-slider .character-section');
+            if (window.innerWidth > 600) return;
+            if (touchEndX < touchStartX - 30) {
+                // Swipe left (next)
+                window.sliderIndex = (window.sliderIndex + 1) % sections.length;
+                updateSliderDisplay();
+            }
+            if (touchEndX > touchStartX + 30) {
+                // Swipe right (prev)
+                window.sliderIndex = (window.sliderIndex - 1 + sections.length) % sections.length;
+                updateSliderDisplay();
+            }
+        }
+        if (mobileArrowLeft && mobileArrowRight) {
+            mobileArrowLeft.addEventListener('click', function() {
+                const sections = document.querySelectorAll('.character-slider .character-section');
+                if (window.innerWidth > 600) return;
+                window.sliderIndex = (window.sliderIndex - 1 + sections.length) % sections.length;
+                updateSliderDisplay();
+            });
+            mobileArrowRight.addEventListener('click', function() {
+                const sections = document.querySelectorAll('.character-slider .character-section');
+                if (window.innerWidth > 600) return;
+                window.sliderIndex = (window.sliderIndex + 1) % sections.length;
+                updateSliderDisplay();
+            });
+        }
+        window.addEventListener('resize', updateSliderDisplay);
+    });
+    </script>
+
+</body>
 </html>
