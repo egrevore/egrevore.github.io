@@ -19,36 +19,34 @@
     <script src="carousel.js" defer></script>
 </head>
 <body>
-    <div id="swipe-indicator" style="display:none; width:100%; text-align:center; padding:12px 0; background:transparent; position:fixed; top:0; left:0; z-index:1000;">
-        <img src="assets/swipe.png" alt="Swipe" style="height:3vh; width:auto;">
-    </div>
-        <div class="character-slider">
-            <div class="character-section">
-                <div class="character">
-                    <img src="assets/one.png" alt="Character 1" class="character-image">
-                </div>
-                <div class="action-button">
-                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/join.png" alt="Join Whitelist" class="action-image coming-soon"></a> <!-- delete coming-soon -->
-                </div>
+    <div class="container">
+        <!-- Left Character - JOIN WHITELIST -->
+        <div class="character-section">
+            <div class="character">
+                <img src="assets/one.png" alt="Character 1" class="character-image">
             </div>
-            <div class="character-section" style="display:none;">
-                <div class="character">
-                    <img src="assets/two.png" alt="Character 2" class="character-image">
-                </div>
-                <div class="action-button">
-                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/mint.png" alt="Mint Egregirl" class="action-image coming-soon"></a> <!-- delete coming-soon -->
-                </div>
+            <div class="action-button">
+                <img src="assets/join.png" alt="Join Whitelist" class="action-image coming-soon">
             </div>
-            <div class="character-section" style="display:none;">
-                <div class="character">
-                    <img src="assets/three.png" alt="Character 3" class="character-image">
-                </div>
-                <div class="action-button">
-                    <a href="https://x.com/egrevore" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/play.png" alt="Play Dress-up Game" class="action-image coming-soon"></a> <!-- delete coming-soon -->
-                </div>
+        </div>
+
+        <!-- Middle Character - MINT EGREGIRL -->
+        <div class="character-section">
+            <div class="character">
+                <img src="assets/two.png" alt="Character 2" class="character-image">
+            </div>
+            <div class="action-button">
+                <img src="assets/mint.png" alt="Mint Egregirl" class="action-image coming-soon">
+            </div>
+        </div>
+
+        <!-- Right Character - DRESS-UP GAME -->
+        <div class="character-section">
+            <div class="character">
+                <img src="assets/three.png" alt="Character 3" class="character-image">
+            </div>
+            <div class="action-button">
+                <img src="assets/play.png" alt="Play Dress-up Game" class="action-image coming-soon">
             </div>
         </div>
     </div>
@@ -65,85 +63,6 @@
             <img src="assets/instagram.png" alt="Instagram">
         </a>
     </div>
-
-    <script>
-    // Mobile slider logic with swipe support
-    function updateSliderDisplay() {
-        const sections = document.querySelectorAll('.character-slider .character-section');
-        // Check if all sections fit in the slider viewport
-        const slider = document.querySelector('.character-slider');
-        let totalWidth = 0;
-        sections.forEach(sec => {
-            totalWidth += sec.offsetWidth;
-        });
-        const fitsInViewport = totalWidth <= slider.offsetWidth;
-        const isMobile = window.innerWidth <= 600 || !fitsInViewport;
-        const mobileArrowLeft = document.getElementById('mobile-arrow-left');
-        const mobileArrowRight = document.getElementById('mobile-arrow-right');
-        if (mobileArrowLeft && mobileArrowRight) {
-            if (isMobile) {
-                mobileArrowLeft.style.display = 'block';
-                mobileArrowRight.style.display = 'block';
-            } else {
-                mobileArrowLeft.style.display = 'none';
-                mobileArrowRight.style.display = 'none';
-            }
-        }
-        if (isMobile) {
-            let current = window.sliderIndex || 0;
-            sections.forEach((sec, i) => {
-                sec.style.display = (i === current) ? 'flex' : 'none';
-            });
-        } else {
-            sections.forEach(sec => { sec.style.display = 'flex'; });
-        }
-    }
-    window.sliderIndex = 0;
-    document.addEventListener('DOMContentLoaded', function() {
-        updateSliderDisplay();
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const slider = document.querySelector('.character-slider');
-        const mobileArrowLeft = document.getElementById('mobile-arrow-left');
-        const mobileArrowRight = document.getElementById('mobile-arrow-right');
-        slider.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        slider.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            handleGesture();
-        });
-        function handleGesture() {
-            const sections = document.querySelectorAll('.character-slider .character-section');
-            if (window.innerWidth > 600) return;
-            if (touchEndX < touchStartX - 30) {
-                // Swipe left (next)
-                window.sliderIndex = (window.sliderIndex + 1) % sections.length;
-                updateSliderDisplay();
-            }
-            if (touchEndX > touchStartX + 30) {
-                // Swipe right (prev)
-                window.sliderIndex = (window.sliderIndex - 1 + sections.length) % sections.length;
-                updateSliderDisplay();
-            }
-        }
-        if (mobileArrowLeft && mobileArrowRight) {
-            mobileArrowLeft.addEventListener('click', function() {
-                const sections = document.querySelectorAll('.character-slider .character-section');
-                if (window.innerWidth > 600) return;
-                window.sliderIndex = (window.sliderIndex - 1 + sections.length) % sections.length;
-                updateSliderDisplay();
-            });
-            mobileArrowRight.addEventListener('click', function() {
-                const sections = document.querySelectorAll('.character-slider .character-section');
-                if (window.innerWidth > 600) return;
-                window.sliderIndex = (window.sliderIndex + 1) % sections.length;
-                updateSliderDisplay();
-            });
-        }
-        window.addEventListener('resize', updateSliderDisplay);
-    });
-    </script>
 
 </body>
 </html>
